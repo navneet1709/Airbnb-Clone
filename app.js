@@ -22,9 +22,9 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
-// const MONGO_URL = "mongodb://127.0.0.1:27017/Airbnb";
-const DB_URL ="mongodb+srv://walker:walker12345@cluster0.zikvu.mongodb.net/airbnb2?retryWrites=true&w=majority&appName=Cluster0";
-const SECRET = "thisisasecret"
+
+const DB_URL = process.env.DB_URL;
+const SECRET =   process.env.SECRET;
 main()
   .then(() => {
     console.log("connected to DB");
