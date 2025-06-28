@@ -18,10 +18,10 @@
                 </div>
                 <div class="profile-user">
                     <h3><span>Name : </span>
-                        <%= currUser.fName.split("")[0].toUpperCase() %>
-                            <%= currUser.fName.slice(1).toLowerCase() %>&nbsp;<%= currUser.lName %>
+                        
+                            <%= currUser.fName.toUpperCase() %>&nbsp;<%= currUser.lName.toUpperCase() %>
                     </h3>
-                    <h3><span>Username : </span>@<%= currUser.username %>
+                    <h3 style="padding-right: 10px;"><span>Username : </span>@<%= currUser.username %>
                     </h3>
                     <h4><span>Email : </span>
                         <%= currUser.email.split("").slice(0,2).join("") %>xxxxx@<%= currUser.email.split("@")[1] %>
