@@ -41,8 +41,10 @@
 
                 </div>
                 
-               
             </div>
+            <div class="book-btn">
+                            <a href="/listings/<%= listing._id %>/book" class="btn btn-primary  col-1 offset-3 edit-btn styleBtn">Book Now</a>
+                            </div>  
             <!-- Authorization  -->
             <% if(currUser &&  listing.owner && currUser._id.equals(listing.owner._id)){ %>
             <div class=" btns offset-2 ">
@@ -63,10 +65,7 @@
                                     </div>
                                 </div>
                             </form>
-                            
-                            <a href="/listings/<%= listing._id %>/book" class="btn btn-primary  col-1 offset-3 edit-btn styleBtn">Book Now</a>
-                            
-                              
+                               
                 </div>
                   
             </div>
