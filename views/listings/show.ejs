@@ -40,9 +40,7 @@
                         <%= listing.category.slice(",").join(", ") %> </p>
 
                 </div>
-                <div class="book-btn">
-                            <a href="/listings/<%= listing._id %>/book" class="btn btn-primary">Book Now</a>
-                 </div>
+                
                
             </div>
             <!-- Authorization  -->
@@ -55,6 +53,7 @@
                                 class="needs-validation">
                                 <button type="reset" class="btn btn-danger offset-4 del-btn styleBtn"
                                     id="delete-confirm">Delete</button>
+                            
                                 <div class="fnx-fixed-dis">
                                     <div class="delete-fnx" style="display: none;">
                                         <p>I want to delete this listings.</p>
@@ -64,7 +63,12 @@
                                     </div>
                                 </div>
                             </form>
+                            
+                            <a href="/listings/<%= listing._id %>/book" class="btn btn-primary  col-1 offset-3 edit-btn styleBtn">Book Now</a>
+                            
+                              
                 </div>
+                  
             </div>
 
             <% } %>
