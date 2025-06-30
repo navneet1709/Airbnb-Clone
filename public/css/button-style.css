@@ -21,3 +21,7 @@
 .styleBtn:active{
     box-shadow: inset 0px 6px 7px black;
 }
+
+.book-btn{
+    margin-top: 10px;
+}

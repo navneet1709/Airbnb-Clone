@@ -38,7 +38,12 @@
                     </p>
                     <p class="card-text"><b>Category :</b>
                         <%= listing.category.slice(",").join(", ") %> </p>
+
                 </div>
+                <div class="book-btn">
+                            <a href="/listings/<%= listing._id %>/book" class="btn btn-primary">Book Now</a>
+                 </div>
+               
             </div>
             <!-- Authorization  -->
             <% if(currUser &&  listing.owner && currUser._id.equals(listing.owner._id)){ %>
