@@ -1,0 +1,215 @@
+.price-summary {
+  margin-top: 18px;
+  margin-bottom: 0;
+  padding: 16px 14px 10px 14px;
+  background: #f9fbe7;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(205,220,57,0.07);
+  border: 1.5px solid #e6ee9c;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 1.08em;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: 0;
+}
+.price-summary > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price-summary .total-after-tax-row {
+  background: #e8f5e9;
+  border-radius: 6px;
+  font-size: 1.13em;
+  font-weight: bold;
+  margin-top: 6px;
+  border: 1.5px solid #c5e1a5;
+  padding: 10px 8px;
+  color: #2e7d32;
+  justify-content: space-between;
+}
+.price-summary .total-after-tax {
+  color: #1b5e20;
+  font-weight: bold;
+  font-size: 1.18em;
+  letter-spacing: 0.01em;
+}
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f7f7fa;
+  margin: 0;
+  padding: 0;
+}
+.booking-confirmed-main.modern {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f7fa;
+}
+.booking-confirmed-card.modern {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  max-width: 430px;
+  width: 100%;
+  padding: 32px 28px 22px 28px;
+  margin: 0 10px;
+}
+.modern-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.icon-success {
+  margin-bottom: 8px;
+}
+.booking-confirmed-card.modern h1 {
+  color: #388e3c;
+  font-size: 1.45em;
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+.success-msg {
+  color: #333;
+  font-size: 1.08em;
+  margin: 0;
+}
+.booking-details.modern {
+  margin-bottom: 18px;
+}
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 10px;
+  font-size: 1em;
+}
+.details-grid > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.details-grid > div:last-child {
+  border-bottom: none;
+}
+.details-grid span {
+  color: #555;
+  font-weight: 500;
+  min-width: 120px;
+}
+.total-after-tax-row {
+  background: #f1f8e9;
+  border-radius: 6px;
+  font-size: 1.13em;
+  font-weight: bold;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: 1.5px solid #c5e1a5;
+  padding: 10px 8px;
+  color: #2e7d32;
+  justify-content: space-between;
+}
+.total-after-tax {
+  color: #1b5e20;
+  font-weight: bold;
+  font-size: 1.18em;
+  letter-spacing: 0.01em;
+}
+.modern-footer {
+  text-align: center;
+  margin-top: 18px;
+}
+.print-btn.modern {
+  display: inline-block;
+  padding: 10px 30px;
+  background: #e53935;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(229,57,53,0.08);
+}
+.print-btn.modern:hover {
+  background: #b71c1c;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f7f7fa;
+  margin: 0;
+  padding: 0;
+}
+.booking-confirmed-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.booking-confirmed-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  max-width: 420px;
+  width: 100%;
+  padding: 28px 22px 18px 22px;
+}
+.booking-confirmed-card header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.booking-confirmed-card h1 {
+  color: #2d3a4a;
+  font-size: 1.45em;
+  margin-bottom: 6px;
+}
+.success-msg {
+  color: #388e3c;
+  font-size: 1.05em;
+  margin: 0;
+}
+.booking-details {
+  margin-bottom: 18px;
+}
+.booking-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.booking-details li {
+  padding: 7px 0 7px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 1em;
+  color: #222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.booking-details li strong {
+  color: #555;
+  font-weight: 500;
+  min-width: 120px;
+}
+.booking-details li:last-child {
+  border-bottom: none;
+}
+.print-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 9px 24px;
+  background: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.print-btn:hover {
+  background: #b71c1c;
+}

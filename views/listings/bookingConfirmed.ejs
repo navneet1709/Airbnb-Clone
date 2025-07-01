@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Confirmed | NestHaven</title>
+  <link rel="stylesheet" href="/css/bookingConfirmed.css">
+</head>
+<body>
+  <main class="booking-confirmed-main modern">
+    <section class="booking-confirmed-card modern">
+      <header class="modern-header">
+        <div class="icon-success">
+          <svg width="48" height="48" fill="none" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#e8f5e9"/><path d="M34 18l-11 11-5-5" stroke="#43a047" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h1>Booking Confirmed!</h1>
+        <p class="success-msg">Thank you for your reservation.<br>Your booking is <b>secured</b> and a receipt has been generated below.</p>
+      </header>
+      <section class="booking-details modern">
+        <div class="details-grid">
+          <div><span>Name:</span> <%= name %></div>
+          <div><span>Email:</span> <%= email %></div>
+          <div><span>Phone:</span> <%= phone %></div>
+          <div><span>House:</span> <%= House_title %></div>
+          <div><span>Location:</span> <%= House_location %></div>
+          <div><span>Country:</span> <%= House_country %></div>
+          <div><span>Check-in:</span> <%= checkin %></div>
+          <div><span>Check-out:</span> <%= checkout %></div>
+          <div><span>Guests:</span> <%= guests %></div>
+          <div><span>Address:</span> <%= address %></div>
+          <div><span>Purpose:</span> <%= purpose %></div>
+          <% if (requests && requests.trim().length > 0) { %>
+            <div><span>Special Requests:</span> <%= requests %></div>
+          <% } %>
+          <div><span>Estimated Arrival:</span> <%= arrival %></div>
+        </div>
+        <div class="price-summary">
+          <div><span>Price per Night:</span> ₹ <%= House_price %></div>
+          <div><span>Nights:</span> <%= nights %></div>
+          <div><span>Total Amount:</span> ₹ <%= totalAmount %></div>
+          <div class="total-after-tax-row"><span>Total After Taxes (18%):</span> <strong class="total-after-tax">₹ <%= totalAfterTax %></strong></div>
+        </div>
+      </section>
+      <footer class="modern-footer">
+        <button class="print-btn modern" onclick="window.print()">Print Receipt</button>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>

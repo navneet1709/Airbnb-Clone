@@ -21,7 +21,8 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
-const bookRouter = require("./routers/booking.js");
+const bookRouter = require("./routers/bookingConfirmed.js");
+const bookingFormRouter = require("./routers/bookingForm.js");
 
 
 const DB_URL = process.env.DB_URL;
@@ -105,6 +106,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(bookingFormRouter);
 app.use(bookRouter);
 app.use("/", userRouter);
 app.use("/profile", profileRouter);
