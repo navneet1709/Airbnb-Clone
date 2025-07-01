@@ -242,8 +242,103 @@
   .modern-navbar-user-menu a::before {
     display: none !important;
   }
-}
+  /* Hide mobile row by default, show on mobile */
+  .mobile-navbar-row { display: none; }
+  @media (max-width: 600px) {
+    .desktop-navbar-search, .desktop-navbar-user { display: none !important; }
+    .mobile-navbar-row { display: flex !important; }
+    .modern-navbar-search-user-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      gap: 10px;
+      margin: 2px 0 6px 0;
+    }
+    .modern-navbar-search {
+      flex: 1 1 0;
+      width: 1%;
+      min-width: 0;
+      margin: 0;
+      justify-content: flex-start;
+    }
+    .modern-navbar-search form {
+      width: 100%;
+      min-width: 0;
+      padding: 2px 6px 2px 8px;
+    }
+    .modern-navbar-search input[type="search"] {
+      width: 100%;
+      min-width: 0;
+      font-size: 0.95em;
+      padding: 7px 0;
+      max-width: 100vw;
+    }
+  }
 </style>
+<nav class="modern-navbar">
+  <div class="modern-navbar-inner">
+    <div class="modern-navbar-logo">
+      <a href="/listings"><img src="/Icon/nestLoog.png" alt="Nesthaven" /></a>
+    </div>
+    <!-- Desktop layout -->
+    <div class="modern-navbar-search desktop-navbar-search">
+      <form role="search" action="/listings/search" method="get">
+        <input type="search" placeholder="Search by title, country, location or category..." aria-label="Search" name="q">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+    </div>
+    <div class="modern-navbar-user desktop-navbar-user">
+      <button id="navbarProfileBtn" style="background:none;border:none;padding:0;cursor:pointer;outline:none;display:flex;align-items:center;">
+        <% if (typeof currUser !=='undefined' && currUser.image && currUser.image.url) { %>
+          <img src="<%= currUser.image.url %>" alt="Profile" />
+        <% } else { %>
+          <img src="/Icon/navbar-icon-user.png" alt="User" />
+        <% } %>
+      </button>
+      <div class="modern-navbar-user-menu" id="navbarProfileMenu">
+        <a href="/profile"><span>Profile</span></a>
+        <a href="/listings/new"><span>Add your Home</span></a>
+        <% if (typeof currUser==='undefined' ) { %>
+          <a href="/signup"><span>SignUp</span></a>
+          <a href="/login"><span>LogIn</span></a>
+        <% } %>
+        <% if (typeof currUser !=='undefined' ) { %>
+          <a href="/logout"><span>LogOut</span></a>
+        <% } %>
+      </div>
+    </div>
+    <!-- Mobile: search and profile side by side -->
+    <div class="modern-navbar-search-user-row mobile-navbar-row" style="display:none;">
+      <div class="modern-navbar-search" style="flex:1;">
+        <form role="search" action="/listings/search" method="get" style="width:100%;">
+          <input type="search" placeholder="Search by title, country, location or category..." aria-label="Search" name="q" style="width:100%;min-width:0;">
+          <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
+      <div class="modern-navbar-user">
+        <button id="navbarProfileBtnMobile" style="background:none;border:none;padding:0;cursor:pointer;outline:none;display:flex;align-items:center;">
+          <% if (typeof currUser !=='undefined' && currUser.image && currUser.image.url) { %>
+            <img src="<%= currUser.image.url %>" alt="Profile" />
+          <% } else { %>
+            <img src="/Icon/navbar-icon-user.png" alt="User" />
+          <% } %>
+        </button>
+        <div class="modern-navbar-user-menu" id="navbarProfileMenuMobile">
+          <a href="/profile"><span>Profile</span></a>
+          <a href="/listings/new"><span>Add your Home</span></a>
+          <% if (typeof currUser==='undefined' ) { %>
+            <a href="/signup"><span>SignUp</span></a>
+            <a href="/login"><span>LogIn</span></a>
+          <% } %>
+          <% if (typeof currUser !=='undefined' ) { %>
+            <a href="/logout"><span>LogOut</span></a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
 <script>
 // Move the right slider button when profile menu is open to avoid overlap
 document.addEventListener('DOMContentLoaded', function() {
@@ -266,41 +361,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
-</style>
-</style>
-<nav class="modern-navbar">
-  <div class="modern-navbar-inner">
-    <div class="modern-navbar-logo">
-      <a href="/listings"><img src="/Icon/nestLoog.png" alt="Nesthaven" /></a>
-    </div>
-    <div class="modern-navbar-search">
-      <form role="search" action="/listings/search" method="get">
-        <input type="search" placeholder="Search by title, country, location or category..." aria-label="Search" name="q">
-        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </form>
-    </div>
-    <div class="modern-navbar-user">
-      <button id="navbarProfileBtn" style="background:none;border:none;padding:0;cursor:pointer;outline:none;display:flex;align-items:center;">
-        <% if (typeof currUser !=='undefined' && currUser.image && currUser.image.url) { %>
-          <img src="<%= currUser.image.url %>" alt="Profile" />
-        <% } else { %>
-          <img src="/Icon/navbar-icon-user.png" alt="User" />
-        <% } %>
-      </button>
-      <div class="modern-navbar-user-menu" id="navbarProfileMenu">
-        <a href="/profile"><span>Profile</span></a>
-        <a href="/listings/new"><span>Add your Home</span></a>
-        <% if (typeof currUser==='undefined' ) { %>
-          <a href="/signup"><span>SignUp</span></a>
-          <a href="/login"><span>LogIn</span></a>
-        <% } %>
-        <% if (typeof currUser !=='undefined' ) { %>
-          <a href="/logout"><span>LogOut</span></a>
-        <% } %>
-      </div>
-    </div>
-  </div>
-</nav>
 <script>
 // Toggle profile menu on button click
 document.addEventListener('DOMContentLoaded', function() {
@@ -317,6 +377,28 @@ document.addEventListener('DOMContentLoaded', function() {
       if (menuOpen && !profileBtn.contains(e.target) && !menu.contains(e.target)) {
         menu.style.display = 'none';
         menuOpen = false;
+      }
+    });
+  }
+});
+</script>
+<script>
+// Toggle mobile profile menu on button click
+// (separate from desktop to avoid ID conflicts)
+document.addEventListener('DOMContentLoaded', function() {
+  const profileBtnMobile = document.getElementById('navbarProfileBtnMobile');
+  const menuMobile = document.getElementById('navbarProfileMenuMobile');
+  let menuOpenMobile = false;
+  if (profileBtnMobile && menuMobile) {
+    profileBtnMobile.addEventListener('click', function(e) {
+      e.stopPropagation();
+      menuOpenMobile = !menuOpenMobile;
+      menuMobile.style.display = menuOpenMobile ? 'flex' : 'none';
+    });
+    document.addEventListener('click', function(e) {
+      if (menuOpenMobile && !profileBtnMobile.contains(e.target) && !menuMobile.contains(e.target)) {
+        menuMobile.style.display = 'none';
+        menuOpenMobile = false;
       }
     });
   }
