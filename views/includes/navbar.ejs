@@ -94,7 +94,6 @@
   font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
 }
 
-
 @keyframes fadeInMenu {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -156,8 +155,95 @@
 .modern-navbar-user-menu {
   box-shadow: 0 8px 32px rgba(44,62,80,0.18), 0 1.5px 6px rgba(44,62,80,0.10);
 }
-
- </style>
+@media (max-width: 900px) {
+  .modern-navbar-inner {
+    padding: 0 8px;
+    height: 54px;
+  }
+  .modern-navbar-logo img {
+    height: 60px;
+  }
+  .modern-navbar-search input[type="search"] {
+    width: 180px;
+    font-size: 0.97em;
+  }
+  .modern-navbar-user img {
+    height: 38px;
+    width: 38px;
+  }
+}
+@media (max-width: 600px) {
+  .modern-navbar-inner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 2vw;
+    height: auto;
+    gap: 6px;
+  }
+  .modern-navbar-logo {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 2px;
+  }
+  .modern-navbar-logo img {
+    height: 64px;
+    border-radius: 12px;
+    max-width: 96vw;
+  }
+  /* --- Responsive: Search and Profile Side by Side --- */
+  .modern-navbar-search-user-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin: 2px 0 6px 0;
+  }
+  .modern-navbar-search {
+    flex: 1 1 0;
+    width: 1%;
+    min-width: 0;
+    margin: 0;
+    justify-content: flex-start;
+  }
+  .modern-navbar-search form {
+    width: 100%;
+    min-width: 0;
+    padding: 2px 6px 2px 8px;
+  }
+  .modern-navbar-search input[type="search"] {
+    width: 100%;
+    min-width: 0;
+    font-size: 0.95em;
+    padding: 7px 0;
+    max-width: 100vw;
+  }
+  .modern-navbar-user {
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    margin-bottom: 0;
+    width: auto;
+  }
+  .modern-navbar-user img {
+    height: 38px;
+    width: 38px;
+  }
+  .modern-navbar-user-menu {
+    right: 2vw;
+    top: 60px;
+    min-width: 140px;
+    padding: 10px 0 6px 0;
+    border-radius: 10px;
+  }
+  .modern-navbar-user-menu a {
+    font-size: 0.97em;
+    padding: 8px 12px 8px 32px;
+  }
+  .modern-navbar-user-menu a::before {
+    display: none !important;
+  }
+}
+</style>
 <script>
 // Move the right slider button when profile menu is open to avoid overlap
 document.addEventListener('DOMContentLoaded', function() {
@@ -187,30 +273,32 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="modern-navbar-logo">
       <a href="/listings"><img src="/Icon/nestLoog.png" alt="Nesthaven" /></a>
     </div>
-    <div class="modern-navbar-search">
-      <form role="search" action="/listings/search" method="get">
-        <input type="search" placeholder="Search by title, country, location or category..." aria-label="Search" name="q">
-        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </form>
-    </div>
-    <div class="modern-navbar-user">
-      <button id="navbarProfileBtn" style="background:none;border:none;padding:0;cursor:pointer;outline:none;display:flex;align-items:center;">
-        <% if (typeof currUser !=='undefined' && currUser.image && currUser.image.url) { %>
-          <img src="<%= currUser.image.url %>" alt="Profile" />
-        <% } else { %>
-          <img src="/Icon/navbar-icon-user.png" alt="User" />
-        <% } %>
-      </button>
-      <div class="modern-navbar-user-menu" id="navbarProfileMenu">
-        <a href="/profile"><span>Profile</span></a>
-        <a href="/listings/new"><span>Add your Home</span></a>
-        <% if (typeof currUser==='undefined' ) { %>
-          <a href="/signup"><span>SignUp</span></a>
-          <a href="/login"><span>LogIn</span></a>
-        <% } %>
-        <% if (typeof currUser !=='undefined' ) { %>
-          <a href="/logout"><span>LogOut</span></a>
-        <% } %>
+    <div class="modern-navbar-search-user-row">
+      <div class="modern-navbar-search">
+        <form role="search" action="/listings/search" method="get">
+          <input type="search" placeholder="Search by title, country, location or category..." aria-label="Search" name="q">
+          <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
+      <div class="modern-navbar-user">
+        <button id="navbarProfileBtn" style="background:none;border:none;padding:0;cursor:pointer;outline:none;display:flex;align-items:center;">
+          <% if (typeof currUser !=='undefined' && currUser.image && currUser.image.url) { %>
+            <img src="<%= currUser.image.url %>" alt="Profile" />
+          <% } else { %>
+            <img src="/Icon/navbar-icon-user.png" alt="User" />
+          <% } %>
+        </button>
+        <div class="modern-navbar-user-menu" id="navbarProfileMenu">
+          <a href="/profile"><span>Profile</span></a>
+          <a href="/listings/new"><span>Add your Home</span></a>
+          <% if (typeof currUser==='undefined' ) { %>
+            <a href="/signup"><span>SignUp</span></a>
+            <a href="/login"><span>LogIn</span></a>
+          <% } %>
+          <% if (typeof currUser !=='undefined' ) { %>
+            <a href="/logout"><span>LogOut</span></a>
+          <% } %>
+        </div>
       </div>
     </div>
   </div>

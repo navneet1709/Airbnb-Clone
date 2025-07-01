@@ -290,6 +290,35 @@
   font-size: 0.97em;
   font-weight: 400;
 }
+@media (max-width: 900px) {
+  .modern-listings-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px 10px;
+  }
+  .modern-listing-body {
+    padding: 12px 10px 10px 10px;
+  }
+}
+@media (max-width: 600px) {
+  .modern-listings-grid {
+    grid-template-columns: 1fr;
+    gap: 14px 0;
+    margin: 18px 0 18px 0;
+  }
+  .modern-listing-card {
+    min-height: 220px;
+    border-radius: 8px;
+  }
+  .modern-listing-img-wrap {
+    aspect-ratio: 16/10;
+  }
+  .modern-listing-title {
+    font-size: 1em;
+  }
+  .modern-listing-location, .modern-listing-dates, .modern-listing-price-row, .modern-listing-total {
+    font-size: 0.93em;
+  }
+}
 </style>
         <script defer src="/js/filter.js"></script>
         <script>

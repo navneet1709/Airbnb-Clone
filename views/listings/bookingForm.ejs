@@ -5,6 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book Your Stay | NestHaven</title>
   <link rel="stylesheet" href="/css/bookingForm.css">
+  <style>
+    @media (max-width: 900px) {
+      .booking-container {
+        width: 98vw;
+        padding: 1rem 0.5rem;
+      }
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .booking-container {
+        width: 100vw;
+        padding: 0.5rem 0.1rem;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+      .form-group label, .form-group input, .form-group select, .form-group textarea {
+        font-size: 0.97rem;
+      }
+      .booking-form button {
+        font-size: 1rem;
+        padding: 8px 18px;
+        border-radius: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="booking-container">
