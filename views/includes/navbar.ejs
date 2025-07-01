@@ -273,32 +273,30 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="modern-navbar-logo">
       <a href="/listings"><img src="/Icon/nestLoog.png" alt="Nesthaven" /></a>
     </div>
-    <div class="modern-navbar-search-user-row">
-      <div class="modern-navbar-search">
-        <form role="search" action="/listings/search" method="get">
-          <input type="search" placeholder="Search by title, country, location or category..." aria-label="Search" name="q">
-          <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-      </div>
-      <div class="modern-navbar-user">
-        <button id="navbarProfileBtn" style="background:none;border:none;padding:0;cursor:pointer;outline:none;display:flex;align-items:center;">
-          <% if (typeof currUser !=='undefined' && currUser.image && currUser.image.url) { %>
-            <img src="<%= currUser.image.url %>" alt="Profile" />
-          <% } else { %>
-            <img src="/Icon/navbar-icon-user.png" alt="User" />
-          <% } %>
-        </button>
-        <div class="modern-navbar-user-menu" id="navbarProfileMenu">
-          <a href="/profile"><span>Profile</span></a>
-          <a href="/listings/new"><span>Add your Home</span></a>
-          <% if (typeof currUser==='undefined' ) { %>
-            <a href="/signup"><span>SignUp</span></a>
-            <a href="/login"><span>LogIn</span></a>
-          <% } %>
-          <% if (typeof currUser !=='undefined' ) { %>
-            <a href="/logout"><span>LogOut</span></a>
-          <% } %>
-        </div>
+    <div class="modern-navbar-search">
+      <form role="search" action="/listings/search" method="get">
+        <input type="search" placeholder="Search by title, country, location or category..." aria-label="Search" name="q">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+    </div>
+    <div class="modern-navbar-user">
+      <button id="navbarProfileBtn" style="background:none;border:none;padding:0;cursor:pointer;outline:none;display:flex;align-items:center;">
+        <% if (typeof currUser !=='undefined' && currUser.image && currUser.image.url) { %>
+          <img src="<%= currUser.image.url %>" alt="Profile" />
+        <% } else { %>
+          <img src="/Icon/navbar-icon-user.png" alt="User" />
+        <% } %>
+      </button>
+      <div class="modern-navbar-user-menu" id="navbarProfileMenu">
+        <a href="/profile"><span>Profile</span></a>
+        <a href="/listings/new"><span>Add your Home</span></a>
+        <% if (typeof currUser==='undefined' ) { %>
+          <a href="/signup"><span>SignUp</span></a>
+          <a href="/login"><span>LogIn</span></a>
+        <% } %>
+        <% if (typeof currUser !=='undefined' ) { %>
+          <a href="/logout"><span>LogOut</span></a>
+        <% } %>
       </div>
     </div>
   </div>
